@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
-class BandInput extends Component {
-
+class BandsContainer extends Component {
   state = {
     name: ''
   }
@@ -21,18 +21,18 @@ class BandInput extends Component {
   }
 
   render() {
-    return (
+    return(
       <div>
+        <li>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={(event) => this.handleOnChange(event)} />
+          <input type="text" value={this.state.name} onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" />
         </form>
+        </li>
+       
       </div>
-    );
+    )
   }
-};
+}
 
-export default BandInput;
+export default connect() (BandsContainer)
